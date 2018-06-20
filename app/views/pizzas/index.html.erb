@@ -9,8 +9,11 @@
       <h4><%=Recipe.find(pizza.recipe_id).name%></h4>
       <p> Crust: <%=  Crust.find(pizza.crust_id).regorthin %></p>
       <p> Price: <%=  Crust.find(pizza.crust_id).price + Recipe.find(pizza.recipe_id).price %></p>
-  <button class=" btn">Add To Cart</button>
+      <% if Order.last.id == current_order.id %>
       <%= link_to "Add to Cart", "/order_pizzas/"+current_order.id.to_s+"/"+pizza.id.to_s, method: :post  %>
+        <% else %>
+        <%= link_to "Add to Cart", "/orders?order_id="+current_order.id.to_s+";pizza_id="+pizza.id.to_s+";payment_method=none", method: :post  %>
+        <% end %>
     </div>
   <% end %>
 </div>

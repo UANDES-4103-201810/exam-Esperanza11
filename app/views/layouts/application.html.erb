@@ -26,7 +26,11 @@
       </div>
       <span class="navbar-text">
         <div>Cart</div>
-        <%= link_to "Cart", "/order/"+current_order.id.to_s %>
+        <% if Order.last.id == current_order.id %>
+        <%= link_to "Cart", "/orders/"+current_order.id.to_s %>
+          <% else %>
+        <div>Cart</div>
+          <% end %>
       </span>
       <span>
         <% if user_signed_in? %>

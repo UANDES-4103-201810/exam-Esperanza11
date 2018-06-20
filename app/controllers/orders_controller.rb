@@ -24,14 +24,14 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.new(id: current_order.id, payment_method: params[:payment_method])
 
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { redirect_to "/" }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -42,9 +42,11 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to "/order_pizzas/"+@order.id.to_s+"/"+params[:pizza_id].to_s, method: :post }
         format.json { render :show, status: :ok, location: @order }
       else
+        print(@order.errors.messages.to_s)
+        print("lalalalalala")
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end

@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
     if not session[:order_id].nil?
       Order.find(session[:order_id])
     else
-      Order.new
+      last = Order.last
+      Order.new(id: (last.id+1))
     end
   end
 end
