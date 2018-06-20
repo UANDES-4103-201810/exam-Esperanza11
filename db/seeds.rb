@@ -41,4 +41,12 @@ espe4 = IngredientInRecipe.create(recipe: r1, ingredient: i7)
 p1= Pizza.create(recipe_id: 1, crust_id: 2)
 p2= Pizza.create(recipe_id: 2, crust_id: 2)
 p3= Pizza.create(recipe_id: 3, crust_id: 1)
+p4= Pizza.create(recipe_id: 1, crust_id: 1)
+p5= Pizza.create(recipe_id: 2, crust_id: 1)
 
+
+o1 = Order.create(payment_method: 'card')
+
+op1 = OrderPizza.create(order: o1, pizza: p1)
+op2 = OrderPizza.create(order: o1, pizza: p2)
+op3 = OrderPizza.create(order: o1, pizza: p3)

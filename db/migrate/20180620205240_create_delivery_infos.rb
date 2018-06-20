@@ -5,7 +5,6 @@ class CreateDeliveryInfos < ActiveRecord::Migration[5.1]
       t.integer :phone
       t.string :address1
       t.string :address2
-      t.references :user, foreign_key: true
 
       t.timestamps
     end

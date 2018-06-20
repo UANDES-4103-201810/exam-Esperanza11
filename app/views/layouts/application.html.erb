@@ -21,9 +21,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
         </div>
       </div>
+      <span class="navbar-text">
+        <div>Cart</div>
+        <%= link_to "Cart", "/order/"+current_order.id.to_s %>
+      </span>
+      <span>
+        <% if user_signed_in? %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Wanna Log In?", new_user_session_path %>
+        <% end %>
+      </span>
+
     </nav>
     <div class="container">
       <%= yield %>

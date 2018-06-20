@@ -4,16 +4,13 @@
 
 <div class="flex-container">
   <% @pizzas.each do |pizza| %>
-    <div class="container">
-      <img src="assets/pizza.png" height="150px">
+    <div class="container" style="width: 300px">
+      <img src="assets/pizza.jpeg" width="150px">
       <h4><%=Recipe.find(pizza.recipe_id).name%></h4>
       <p> Crust: <%=  Crust.find(pizza.crust_id).regorthin %></p>
       <p> Price: <%=  Crust.find(pizza.crust_id).price + Recipe.find(pizza.recipe_id).price %></p>
-  <button>Buy</button>
+  <button class=" btn">Add To Cart</button>
+      <%= link_to "Add to Cart", "/order_pizzas/"+current_order.id.to_s+"/"+pizza.id.to_s, method: :post  %>
     </div>
   <% end %>
 </div>
-
-
-<br>
-
