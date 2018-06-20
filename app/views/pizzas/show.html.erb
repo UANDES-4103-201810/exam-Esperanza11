@@ -2,12 +2,12 @@
 
 <p>
   <strong>Crust:</strong>
-  <%= @pizza.crust %>
+  <%= Crust.find(@pizza.crust_id).regorthin %>
 </p>
 
 <p>
   <strong>Recipe:</strong>
-  <%= @pizza.recipe %>
+  <%= Recipe.find(@pizza.recipe_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_pizza_path(@pizza) %> |

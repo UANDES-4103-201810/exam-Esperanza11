@@ -82,3 +82,13 @@ div {
 label {
   display: block;
 }
+
+button, a {
+  color : deeppink !important;
+}
+
+.flex-container {
+  display: flex;
+  border-color: transparent !important;
+  border-width: thick !important;
+}

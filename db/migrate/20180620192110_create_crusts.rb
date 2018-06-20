@@ -1,7 +1,7 @@
 class CreateCrusts < ActiveRecord::Migration[5.1]
   def change
     create_table :crusts do |t|
-      t.string :type
+      t.string :regorthin
       t.integer :price
 
       t.timestamps
